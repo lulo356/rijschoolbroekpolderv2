@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rijschool Broekpolder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="toplink" href="tel:+31600000000">
+        <span class="ico" aria-hidden="true">☎</span> +31 6 0000 0000
+      </a>
+      <span class="sep">|</span>
+      <a class="toplink" href="mailto:info@rijschoolbroekpolder.nl">
+        <span class="ico" aria-hidden="true">✉</span> info@rijschoolbroekpolder.nl
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="./assest/rijschool-broekpolder_logo-removebg-preview.png" alt="test" class="brand-logo">
+      </a>
+
+      <nav class="nav">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="#over">Over ons</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn-cta" href="#contact">Proefles aanvragen</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('./assest/background-les.jpg');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-inner">
+      <h1>JE RIJBEWIJS HALEN IN DE<br>REGIO KENNEMERLAND?</h1>
+      <p>Kies voor Rijschool Broekpolder!</p>
+      <a class="btn-hero" href="#contact">Neem contact met ons op <span aria-hidden="true">›</span></a>
+    </div>
+
+    <!-- Cards die over de hero heen hangen -->
+    <div class="container cards">
+      <a class="card" href="#autorijles" id="autorijles">
+        <div class="card-ico" aria-hidden="true">
+          <!-- vervang door svg/png icoon -->
+          <img src="./assest/car-icon.png" alt="">
+        </div>
+        <h3>AUTORIJLES</h3>
+        <p>Gedegen autorijlessen die cursisten stap voor stap opleiden tot zelfverzekerde en veilige bestuurders.</p>
+      </a>
+
+      <a class="card" href="#motorrijles" id="motorrijles">
+        <div class="card-ico" aria-hidden="true">
+          <img src="./assest/motor-icon.png" alt="">
+        </div>
+        <h3>MOTORRIJLES</h3>
+        <p>Motorrijlessen met nadruk op beheersing, verkeersinzicht en zelfvertrouwen.</p>
+      </a>
+
+      <a class="card" href="#aangepast" id="aangepast">
+        <div class="card-ico" aria-hidden="true">
+          <img src="./assest/Aangepast-icon.png" alt="">
+        </div>
+        <h3>AANGEPASTE RIJLES</h3>
+        <p>Maatwerk rijlessen met extra begeleiding die past bij jouw situatie en tempo.</p>
+      </a>
+
+      <a class="card" href="#be" id="be">
+        <div class="card-ico" aria-hidden="true">
+          <img src="./assest/BE-icon.png" alt="">
+        </div>
+        <h3>BE RIJLES</h3>
+        <p>BE-rijlessen gericht op veilig af- en aankoppelen, rijden en manoeuvreren met een aanhanger.</p>
+      </a>
+    </div>
+  </section>
+  <section class="featureband">
+    <div class="container feature">
+      <div class="feature__media">
+        <img src="./assest/jeroen.jpg" alt="Team foto Rijschool Broekpolder">
+      </div>
+
+      <div class="feature__content">
+        <h2>WIE BEN IK?</h2>
+        <p>
+          Mijn naam is Jeroen Hamelink, eigenaar en rij-instructeur van Rijschool Broekpolder.
+          Ik geef rijles op een rustige, duidelijke en persoonlijke manier, zodat jij met vertrouwen
+          de weg op gaat. Samen maken we een lesplan dat past bij jouw niveau en leerstijl, met als doel:
+          veilig en zelfstandig rijden.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="prijzen" id="prijzen">
+    <div class="container">
+      <div class="prijzen-head">
+        <h2>TARIEVEN</h2>
+        <p>Kies een pakket dat bij je past. Vragen? Neem contact op.</p>
+      </div>
+
+      <div class="prijzen-grid" id="prijzenGrid"></div>
+
+      <p class="prijzen-note" id="prijzenNote"></p>
+    </div>
+  </section>
+  <section class="featureband" class="prices-section" id="tarieven">
+    <div class="container">
+      <h2 class="prices-title">THEORIE TARIEVEN</h2>
+      <div class="prices-table" id="theorieTable"></div>
+
+      <h2 class="prices-title prices-title--space">CBR KOSTEN</h2>
+      <div class="prices-table" id="cbrTable"></div>
+
+      <p class="prices-note" id="pricesNote"></p>
+    </div>
+  </section>
+  <section class="partners" id="partners">
+    <div class="container">
+      <h2 class="partners-title">PARTNERS</h2>
+
+      <div class="partners-logos">
+        <a class="partner-logo" href="https://joosthuijgens.nl/" target="_blank" rel="noopener">
+          <img src="./assest/jhrijschool.jpg" alt="Rijschool Joost Huijgens">
+        </a>
+
+        <a class="partner-logo" href="https://www.cbr.nl" target="_blank" rel="noopener">
+          <img src="./assest/cbr.png" alt="CBR">
+        </a>
+
+        <a class="partner-logo" href="#" target="_blank" rel="noopener">
+          <img src="./assest/tsh.jpg" alt="Theorie Partner">
+        </a>
+
+        <a class="partner-logo" href="#" target="_blank" rel="noopener">
+          <img src="./assest/lbkr.jpg" alt="Partner">
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>CONTACT</h2>
+        <p>Vraag een proefles aan of stel je vraag. We reageren meestal dezelfde dag.</p>
+
+        <div class="contact-cards">
+          <a class="contact-card" href="tel:+31600000000">
+            <span class="cc-title">Telefoon</span>
+            <span class="cc-value">+31 6 0000 0000</span>
+          </a>
+          <a class="contact-card" href="mailto:info@rijschoolbroekpolder.nl">
+            <span class="cc-title">E-mail</span>
+            <span class="cc-value">info@rijschoolbroekpolder.nl</span>
+          </a>
+          <a class="contact-card" href="https://wa.me/31600000000" target="_blank" rel="noopener">
+            <span class="cc-title">WhatsApp</span>
+            <span class="cc-value">Snelste reactie</span>
+          </a>
+        </div>
+
+        <div class="socials">
+          <a class="social" href="https://instagram.com/..." target="_blank" rel="noopener" aria-label="Instagram">
+            <!-- Instagram icon -->
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 4.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 8.5Zm0 2A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 10.5ZM17.8 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>
+          </a>
+
+          <a class="social" href="https://facebook.com/..." target="_blank" rel="noopener" aria-label="Facebook">
+            <!-- Facebook icon -->
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.6l.4-3h-3V9.1c0-.9.3-1.6 1.6-1.6H16V5.1c-.5-.1-1.5-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6V11H6v3h2.8v8h4.7Z"/></svg>
+          </a>
+
+          <a class="social" href="https://tiktok.com/@..." target="_blank" rel="noopener" aria-label="TikTok">
+            <!-- TikTok icon -->
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M16 3c.6 2.7 2.3 4.4 5 5v4c-1.9.1-3.6-.5-5-1.6V16a6 6 0 1 1-6-6c.3 0 .6 0 1 .1v4.2c-.3-.2-.6-.3-1-.3a2 2 0 1 0 2 2V3h4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulier -->
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <label>Naam
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Telefoon
+            <input type="tel" name="phone" autocomplete="tel" required>
+          </label>
+        </div>
+
+        <label>E-mail (optioneel)
+          <input type="email" name="email" autocomplete="email">
+        </label>
+
+        <label>Waar gaat je vraag over?
+          <select name="topic">
+            <option value="proefles">Proefles</option>
+            <option value="autorijles">Autorijles</option>
+            <option value="automaat">Automaat</option>
+            <option value="be">BE (aanhanger)</option>
+            <option value="anders">Anders</option>
+          </select>
+        </label>
+
+        <label>Bericht
+          <textarea name="message" rows="5" placeholder="Bijv. wanneer wil je starten, schakel/automaat, beschikbaarheid..."></textarea>
+        </label>
+
+        <button class="btn-hero" type="submit">Versturen <span aria-hidden="true">›</span></button>
+        <p class="form-note">Door te versturen ga je akkoord met verwerking van je gegevens om contact op te nemen.</p>
+      </form>
+    </div>
+  </section>
+  <section class="prefooter" id="reviews">
+    <div class="container">
+      <h2>GOOGLE REVIEWS</h2>
+      <p>Bekijk wat leerlingen zeggen over Rijschool Broekpolder.</p>
+
+      <div class="reviews-embed reviews-embed--big">
+        <div class="elfsight-app-e7006962-b12d-4904-98f9-308e07b71165" data-elfsight-app-lazy></div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="sitefooter">
+    <div class="container sitefooter-top">
+      <div class="fcol">
+        <p class="ftitle">Rijschool Broekpolder</p>
+        <p>Wim Kanlaan 41</p>
+        <p>1948AD Beverwijk</p>
+      </div>
+
+      <div class="fcol">
+        <p class="ftitle">Contact</p>
+        <p><a href="tel:+31616075427">06-16075427</a></p>
+        <p><a href="mailto:Mail@rijschoolbroekpolder.nl">Mail@rijschoolbroekpolder.nl</a></p>
+      </div>
+
+      <div class="fcol">
+        <p class="ftitle">Gegevens</p>
+        <p>BTW: NL002969607B20</p>
+        <p>IBAN: NL74KNAB0501676171</p>
+        <p>KVK: 77065506 • CBR: 1887U0 • IBKI: 229446</p>
+      </div>
+    </div>
+
+    <div class="sitefooter-bottom">
+      <div class="container bottom-inner">
+        <p>© <span id="year"></span> Rijschool Broekpolder</p>
+        <p>Gemaakt door <strong>Dave Klok</strong></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="./js/prices.js"></script>
+  <script src="./js/prices-render.js"></script>
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+</body>
+</html>

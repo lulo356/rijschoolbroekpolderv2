@@ -1,0 +1,1038 @@
+:root{
+  --navy:#0b1f5a;
+  --accent:#1f5cff;         /* link blauw */
+  --band:#f2f6ff; 
+  --blue:#0b1f5a;        /* topbar */
+  --blue2:#123a9a;       /* icon blauw */
+  --text:#0f1b2d;
+  --muted:#5c6b82;
+  --yellow:#f2b233;      /* CTA knop */
+  --white:#ffffff;
+  --shadow: 0 18px 40px rgba(0,0,0,.18);
+  --radius: 10px;
+  --container: 1180px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:#fff;
+}
+
+.container{
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ===== Feature band (lichtblauwe strook met schuine onderkant) ===== */
+.featureband{
+  position: relative;
+  background: var(--band);
+  padding: 70px 0;
+  overflow: hidden;
+}
+
+/* Deze pseudo-element maakt die “schuine/gebogen” onderrand */
+.featureband::after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:-65px;
+  height: 120px;
+  background: #fff;
+  transform: rotate(-2.2deg);
+  transform-origin: center;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
+}
+
+/* Als de volgende sectie wit moet zijn (zoals in je screenshot) */
+.featureband--white{
+  background:#fff;
+}
+.featureband--white::after{
+  background: var(--band); /* laat ‘m doorlopen voor het volgende blok */
+}
+
+/* ===== Grid layout ===== */
+.feature{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* beeld links iets groter */
+  gap: 70px;
+  align-items: center;
+}
+
+.feature--reverse{
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.feature--reverse .feature__media{ order: 2; }
+.feature--reverse .feature__content{ order: 1; }
+
+/* ===== Afbeelding “kaart” ===== */
+.feature__media{
+  border-radius: 18px;
+  overflow: hidden;
+  background:#fff;
+  box-shadow: var(--shadow);
+}
+
+.feature__media img{
+  width: 100%;
+  height: 490px;      /* pas dit aan */
+  object-fit: cover;  /* ✅ vult zonder te rekken */
+  object-position: center;
+  display: block;
+}
+
+/* ===== Tekst styling zoals Joost (uppercase kop, strak) ===== */
+.feature__content h2{
+  margin: 0 0 14px;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: .02em;
+  font-size: 34px;
+  color: var(--navy);
+  text-transform: uppercase;
+}
+
+.feature__content p{
+  margin: 0 0 22px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 15px;
+  max-width: 58ch;
+}
+
+/* Link zoals “LEES MEER OVER ONS >” */
+.textlink{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.textlink:hover{filter: brightness(.9)}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .feature{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .feature--reverse .feature__media,
+  .feature--reverse .feature__content{
+    order: initial;
+  }
+  .feature__media img{height: 380px;}
+  .feature__content h2{font-size: 28px;}
+  .featureband{padding: 80px 0;}
+  .featureband::after{bottom:-80px; height: 120px;}
+}
+
+/* ===== Topbar ===== */
+.topbar{
+  background: var(--blue);
+  color:#fff;
+  font-size: 14px;
+}
+.topbar-inner{
+  height: 42px;
+  display:flex;
+  align-items:center;
+  justify-content:center; /* gecentreerd zoals screenshot */
+  gap: 16px;
+}
+.toplink{
+  color:#fff;
+  text-decoration:none;
+  opacity:.95;
+}
+.toplink:hover{opacity:1}
+.sep{opacity:.55}
+.ico{margin-right:8px}
+
+/* ===== Header ===== */
+.header{
+  background:#fff;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+}
+.header-inner{
+  height: 92px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+}
+.brand-logo{
+  height: 90px;
+  width:auto;
+  display:block;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap: 26px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+.nav-link{
+  color:#1b2a43;
+  text-decoration:none;
+  position:relative;
+  padding: 6px 0;
+}
+.nav-link:hover{color:#2a57d6}
+.nav-link.active{color:#2a57d6}
+
+/* dropdown zoals “RIJLESSEN ▾” */
+.nav-dd{position:relative}
+.nav-dd-btn{
+  all: unset;
+  cursor:pointer;
+  color:#1b2a43;
+  padding: 6px 0;
+}
+.nav-dd-btn:hover{color:#2a57d6}
+.caret{margin-left:6px}
+
+.nav-dd-menu{
+  display:none;
+  position:absolute;
+  top: 34px;
+  left: -10px;
+  min-width: 220px;
+  background:#fff;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 10;
+}
+.nav-dd-menu a{
+  display:block;
+  padding: 10px 10px;
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:600;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color:#1b2a43;
+  text-decoration:none;
+  border-radius: 8px;
+}
+.nav-dd-menu a:hover{background: rgba(42,87,214,.08)}
+.nav-dd:hover .nav-dd-menu{display:block}
+
+/* CTA knop rechts */
+.btn-cta{
+  font-family:"Montserrat", sans-serif;
+  font-weight:800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+
+  background: var(--yellow);
+  color:#fff;
+  text-decoration:none;
+  padding: 12px 18px;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(242,178,51,.35);
+  white-space: nowrap;
+}
+.btn-cta:hover{filter: brightness(.97)}
+
+/* ===== Hero ===== */
+.hero{
+  position: relative;
+  min-height: 560px;      /* behoud hetzelfde gevoel als nu */
+  height: auto;           /* <-- belangrijk */
+  overflow: visible;
+  padding-bottom: 120px;  /* <-- ruimte zodat de volgende sectie niet onder de cards komt */
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: fill;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 100%);
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  padding-top: 95px;
+  max-width: 720px;
+}
+.hero h1{
+  margin:0 0 14px;
+  font-family:"Montserrat", sans-serif;
+  font-weight:800;
+  font-size: 44px;
+  line-height: 1.1;
+  color:#fff;
+  text-transform: uppercase;
+}
+.hero p{
+  margin:0 0 18px;
+  color: rgba(255,255,255,.92);
+  font-size: 16px;
+}
+.btn-hero{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  background: var(--yellow);
+  color:#fff;
+  text-decoration:none;
+  padding: 12px 18px;
+  border-radius: 22px;
+  font-weight: 800;
+  font-family:"Montserrat", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  box-shadow: 0 10px 25px rgba(242,178,51,.35);
+}
+.btn-hero:hover{filter: brightness(.97)}
+
+/* ===== Cards (overlap) ===== */
+.cards{
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+
+  margin-top: 90px;           /* iets minder dan 110 */
+  transform: translateY(60px);/* iets minder dan 80 */
+}
+
+.card{
+  background:#fff;
+  border-radius: var(--radius);
+  padding: 22px 20px 18px;
+  box-shadow: var(--shadow);
+  text-decoration:none;
+  color: var(--text);
+  text-align:center;
+}
+.card:hover{transform: translateY(-2px)}
+.card-ico{
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.card-ico img{
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  /* als je 1 kleur iconen wil: gebruik echte blauwe svg/png */
+}
+.card h3{
+  margin: 8px 0 10px;
+  font-family:"Montserrat", sans-serif;
+  font-weight:800;
+  font-size: 16px;
+  letter-spacing:.02em;
+  color:#173a8a;
+}
+.card p{
+  margin:0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ===== Content na hero ===== */
+.content{
+  padding: 150px 0 80px; /* ruimte omdat cards overlappen */
+  background:#f5f6f8;
+}
+.content h2{
+  font-family:"Montserrat", sans-serif;
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+/* ===== Prijzen sectie ===== */
+.prijzen{
+  padding: 70px 0 80px;
+  background:#fff;
+}
+
+.prijzen-head h2{
+  margin: 0 0 10px;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--navy);
+  text-transform: uppercase;
+  font-size: 34px;
+}
+.prijzen-head p{
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.prijzen-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.prijs-card{
+  background:#fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 22px 20px;
+  position: relative;
+}
+.prijs-card h3{
+  margin: 0 0 8px;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  color:#173a8a;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.prijs-price{
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.prijs-sub{
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.prijs-card ul{
+  margin: 0 0 16px;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.prijs-btn{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.prijs-card.is-featured{
+  outline: 2px solid rgba(242,178,51,.55);
+}
+.prijs-badge{
+  position:absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--yellow);
+  color:#fff;
+  font-family:"Montserrat", sans-serif;
+  font-weight:800;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.prijzen-note{
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* responsive */
+@media (max-width: 1050px){
+  .prijzen-grid{grid-template-columns: 1fr 1fr;}
+}
+@media (max-width: 720px){
+  .prijzen{padding: 50px 0 60px;}
+  .prijzen-grid{grid-template-columns: 1fr;}
+  .prijzen-head h2{font-size: 28px;}
+}
+
+
+/* ===== Prijzen (Joost-achtige tabellen) ===== */
+.prices-section{
+  padding: 70px 0 80px;
+  background:#fff;
+}
+
+.prices-title{
+  margin: 0 0 14px;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--navy);
+  text-transform: uppercase;
+  font-size: 34px;
+  text-align: center;
+}
+
+.prices-title--space{ margin-top: 44px; }
+
+.prices-table{
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.ttable{
+  border: 2px solid rgba(17,60,160,.55);
+  border-radius: 0; /* joost-stijl is vrij “strak” */
+  overflow:hidden;
+  background:#fff;
+}
+
+.trow{
+  display:grid;
+  grid-template-columns: 1fr 160px; /* item + prijs */
+  gap: 0;
+  border-top: 1px solid rgba(17,60,160,.45);
+}
+.trow:first-child{ border-top: 0; }
+
+.trow.thead{
+  background: rgba(17,60,160,.06);
+  font-weight: 800;
+  font-family:"Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: var(--navy);
+}
+
+.tcell{
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #1b2a43;
+}
+
+.tcell.price{
+  border-left: 2px solid rgba(17,60,160,.45);
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* CBR variant met actie-kolom */
+#cbrTable .trow{
+  grid-template-columns: 1fr 140px 160px; /* item + link + prijs */
+}
+#cbrTable .tcell.action{
+  border-left: 2px solid rgba(17,60,160,.45);
+  text-align:center;
+}
+#cbrTable .tcell.price{
+  border-left: 2px solid rgba(17,60,160,.45);
+}
+
+.tlink{
+  color: #1f5cff;
+  text-decoration:none;
+  font-weight: 800;
+  font-family:"Montserrat", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.tlink:hover{ filter: brightness(.9); }
+
+.tmuted{ color: #6b7c98; }
+
+.prices-note{
+  margin: 10px auto 0;
+  max-width: 880px;
+  text-align:center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .prices-title{ font-size: 28px; }
+  .trow{ grid-template-columns: 1fr 110px; }
+  #cbrTable .trow{ grid-template-columns: 1fr 110px 110px; }
+  .tcell{ font-size: 13px; }
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 1050px){
+  .nav{gap:16px}
+  .hero h1{font-size: 38px}
+  .cards{grid-template-columns: 1fr 1fr; transform: translateY(70px)}
+}
+/* ===== FIX MOBILE: cards niet over content heen ===== */
+@media (max-width: 720px){
+
+  /* hero niet forceren op vaste hoogte */
+  .hero{
+    height: auto !important;
+    padding-bottom: 20px;
+  }
+
+  /* cards moeten "normaal" onder de hero vallen */
+  .cards{
+    margin-top: 18px !important;
+    transform: none !important;      /* <-- DE FIX */
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* omdat cards niet meer overlappen -> content niet zo ver omlaag */
+  .content{
+    padding: 40px 0 60px !important;
+  }
+  .header-inner{height:auto; padding: 14px 0}
+  .nav{display:none} /* simpele variant; als je wil maak ik burger menu */
+  .hero-inner{padding-top: 70px}
+  .hero h1{font-size: 30px}
+}
+
+/* ===== Partners sectie ===== */
+.partners{
+  padding: 60px 0;
+  background: #fff;
+}
+
+.partners-title{
+  text-align: center;
+  margin: 0 0 22px;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--navy);
+  text-transform: uppercase;
+  font-size: 34px;
+}
+
+.partners-logos{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.partner-logo{
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 95px;
+  transition: transform .15s ease;
+}
+
+.partner-logo:hover{
+  transform: translateY(-2px);
+}
+
+.partner-logo img{
+  max-width: 140px;
+  max-height: 55px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* responsive */
+@media (max-width: 1050px){
+  .partners-logos{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 720px){
+  .partners-title{
+    font-size: 28px;
+  }
+  .partners-logos{
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== Contact ===== */
+.contact{
+  padding: 70px 0;
+  background: #f2f6ff;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items:start;
+}
+
+.contact-info h2{
+  margin: 0 0 10px;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--navy);
+  text-transform: uppercase;
+  font-size: 34px;
+}
+.contact-info p{
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.contact-cards{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.contact-card{
+  background:#fff;
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-decoration:none;
+  color: var(--text);
+  display:flex;
+  flex-direction:column;
+  gap: 2px;
+}
+.cc-title{
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing:.03em;
+  text-transform: uppercase;
+  color:#173a8a;
+}
+.cc-value{ color: var(--muted); font-size: 14px; }
+
+/* Socials */
+.socials{display:flex; gap:10px; align-items:center;}
+.social{
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background:#fff;
+  box-shadow: var(--shadow);
+  display:flex; align-items:center; justify-content:center;
+  color:#173a8a;
+  text-decoration:none;
+}
+.social:hover{transform: translateY(-2px);}
+
+/* Form */
+.contact-form{
+  background:#fff;
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.contact-form label{
+  display:block;
+  font-weight: 700;
+  color:#1b2a43;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%;
+  margin-top: 6px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(17,60,160,.18);
+  background: #fff;
+  outline: none;
+  font: inherit;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color: rgba(31,92,255,.55);
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-note{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ===== Reviews ===== */
+/* ===== Pre-footer (reviews) die wél past bij de bands ===== */
+.prefooter{
+  background: var(--band);
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtiele “schuine” overgang zoals je featureband */
+.prefooter::after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:-65px;
+  height: 120px;
+  background: #fff;
+  transform: rotate(-2.2deg);
+  transform-origin: center;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
+}
+
+.prefooter-inner{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.prefooter h2{
+  margin: 0 0 10px;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--navy);
+  text-transform: uppercase;
+  font-size: 34px;
+}
+.prefooter p{ margin:0; color: var(--muted); }
+
+.prefooter-actions{
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.prefooter-card{
+  background:#fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+  text-align: center;
+}
+
+.prefooter-socials{display:flex; gap:10px; align-items:center;}
+
+/* jouw .social class is al ok; kleine tweak voor consistentie */
+.social{
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background:#fff;
+  box-shadow: var(--shadow);
+  display:flex; align-items:center; justify-content:center;
+  color:#173a8a;
+  text-decoration:none;
+}
+.social:hover{transform: translateY(-2px);}
+
+/* ===== Footer (1 geheel, strak) ===== */
+.sitefooter{
+  background: #0b1f5a;
+  color: rgba(255,255,255,.9);
+}
+
+.sitefooter-top{
+  padding: 34px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 22px;
+}
+
+.fcol p{
+  margin: 0 0 8px;
+  font-size: 13px;
+}
+
+.ftitle{
+  margin: 0 0 12px;
+  color: #fff;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.sitefooter a{
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+  font-weight: 700;
+}
+.sitefooter a:hover{ text-decoration: underline; }
+
+.sitefooter-bottom{
+  border-top: 1px solid rgba(255,255,255,.12);
+  background: #071743;
+  padding: 12px 0;
+}
+
+.bottom-inner{
+  display:flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bottom-inner p{
+  margin: 0;
+  font-size: 12px;
+  opacity: .92;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .prefooter-inner{ grid-template-columns: 1fr; }
+  .prefooter h2{ font-size: 28px; }
+  .sitefooter-top{ grid-template-columns: 1fr; }
+}
+
+/* ===== MOBILE FIX: Contact + Reviews ===== */
+@media (max-width: 720px){
+
+  /* Contact sectie compacter */
+  .contact{
+    padding: 40px 0 !important;
+  }
+
+  .contact-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Links (info) wat strakker */
+  .contact-info h2{
+    font-size: 28px !important;
+    line-height: 1.05;
+  }
+
+  .contact-cards{
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Socials niet te groot + net onder elkaar indien nodig */
+  .socials{
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .social{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  /* Formulier: alles 1 kolom */
+  .contact-form{
+    padding: 16px !important;
+    border-radius: 12px;
+  }
+  .form-row{
+    grid-template-columns: 1fr !important; /* <-- belangrijk */
+    gap: 10px !important;
+  }
+
+  /* Inputs iets compacter */
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea{
+    padding: 11px 12px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Knop altijd full width op mobiel */
+  .contact-form .btn-hero{
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Reviews sectie: haal die enorme ruimte weg */
+  .reviews,
+  .prefooter{
+    padding: 40px 0 !important;
+  }
+
+  .reviews-inner,
+  .prefooter-inner{
+    gap: 14px !important;
+  }
+
+  /* Als je nog de oude review-box gebruikt */
+  .review-box{
+    width: 100%;
+    min-width: 0 !important;
+  }
+}
+
+/* ===== Elfsight reviews netjes in design ===== */
+.reviews-embed{
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 12px;
+  overflow: hidden;      /* voorkomt rare randen */
+}
+
+/* Zorg dat de widget altijd netjes meeschaa lt */
+.reviews-embed *{
+  max-width: 100%;
+}
+
+/* Mobile: geen rare margins/overflows */
+@media (max-width: 720px){
+  .prefooter-inner{
+    grid-template-columns: 1fr !important;
+  }
+  .reviews-embed{
+    padding: 10px;
+  }
+}
