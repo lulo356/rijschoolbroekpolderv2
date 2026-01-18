@@ -1027,6 +1027,45 @@ body{
   max-width: 100%;
 }
 
+.sitefooter-top{
+  grid-template-columns: 1fr 1fr 1.4fr 0.7fr; /* extra kolom rechts */
+  align-items: center;
+}
+
+.fcol-gif{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer-car-gif{
+  width: 260px;        /* grootte in circle */
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  opacity: 0.85;
+  filter: grayscale(1) brightness(1.1);
+  background: rgba(255,255,255,.08);
+  padding: 10px;
+}
+
+/* Op mobiel liever onderaan of weg (mooier) */
+@media (max-width: 900px){
+  .sitefooter-top{
+    grid-template-columns: 1fr; /* alles onder elkaar */
+  }
+
+  .fcol-gif{
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .footer-car-gif{
+    width: 220px;
+  }
+}
+
+
 /* Mobile: geen rare margins/overflows */
 @media (max-width: 720px){
   .prefooter-inner{
