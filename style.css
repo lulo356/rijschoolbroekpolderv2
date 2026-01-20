@@ -1161,12 +1161,13 @@ body{
   /* foto uitsnede goed */
   .featureband .feature__media img{
     width: 100%;
-    height: 500px;
+    height: 580px;
     object-fit: cover;
     object-position: center; /* of 50% 35% als gezicht hoger moet */
     display: block;
   }
 }
+
 
 
 
