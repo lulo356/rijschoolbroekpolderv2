@@ -28,9 +28,33 @@ body{
 
 /* ===== Over ons / feature blocks ===== */
 .featureband{
-  padding: 70px 0;
+  position: relative;
   background: var(--band);
+  padding: 70px 0 120px;
+  overflow: hidden;
 }
+
+/* de witte schuine overlay (snijdt de band schuin af) */
+.featureband::after{
+  content:"";
+  position:absolute;
+  left: 0;
+  width: 120%;
+  height: 150px;
+
+  bottom: -120px;                /* ✅ duwt hem naar beneden */
+  background: #fff;              /* ✅ kleur van de volgende sectie */
+  transform: rotate(-3.2deg);    /* ✅ mooier dan skew in jouw geval */
+  transform-origin: left bottom;
+  z-index: 0;
+}
+
+/* alles boven de overlay houden */
+.featureband .container{
+  position: relative;
+  z-index: 1;
+}
+
 
 .feature{
   display: grid;
@@ -311,7 +335,7 @@ body{
 /* ===== Hero ===== */
 .hero{
   position: relative;
-  min-height: 560px;
+  min-height: 480px;
   height: auto;  
   overflow: visible;
   padding-bottom: 120px; 
@@ -334,7 +358,7 @@ body{
 .hero-inner{
   position:relative;
   z-index:2;
-  padding-top: 95px;
+  padding-top: 30px;
   max-width: 720px;
 }
 .hero h1{
@@ -367,7 +391,12 @@ body{
   letter-spacing: .03em;
   box-shadow: 0 10px 25px rgba(242,178,51,.35);
 }
+
 .btn-hero:hover{filter: brightness(.97)}
+.cards-section{
+  margin-top: -110px; /* overlap op desktop */
+  padding-bottom: 60px;
+}
 
 /* ===== Cards (overlap) ===== */
 .cards{
@@ -375,9 +404,6 @@ body{
   grid-template-columns: repeat(3, 260px);
   justify-content: center;                 
   gap: 22px;
-
-  margin-top: 90px;
-  transform: translateY(60px);
   z-index: 3;
   position: relative;
 }
@@ -464,6 +490,7 @@ body{
   padding: 22px 20px;
   position: relative;
 }
+
 .prijs-card h3{
   margin: 0 0 8px;
   font-family:"Montserrat", sans-serif;
@@ -530,6 +557,29 @@ body{
   font-size: 13px;
   white-space: pre-line;
 }
+
+/* ===== Prijzen: fade/slide-in ===== */
+.prijs-card{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.prijs-card.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* netjes voor mensen met reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .prijs-card{
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
 
 /* responsive */
 @media (max-width: 1050px){
@@ -643,7 +693,6 @@ body{
   .tcell{ font-size: 13px; }
 }
 
-
 /* ===== Responsive ===== */
 @media (max-width: 1050px){
   .nav{gap:16px}
@@ -651,18 +700,16 @@ body{
   .cards{grid-template-columns: 1fr 1fr; transform: translateY(70px)}
 }
 @media (max-width: 720px){
-
   .hero{
     height: auto !important;
-    padding-bottom: 20px;
+    padding-bottom: 120px;
   }
   .cards{
     margin-top: 18px !important;
     transform: none !important;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 20px;
   }
-
   .content{
     padding: 40px 0 60px !important;
   }

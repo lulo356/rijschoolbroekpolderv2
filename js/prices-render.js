@@ -22,6 +22,34 @@
   `).join("");
 
   note.textContent = data.note || "";
+    // === Reveal animatie voor prijskaarten (na render) ===
+  const prijsCards = grid.querySelectorAll(".prijs-card");
+
+  const colsForWidth = () => {
+    const w = window.innerWidth;
+    if (w <= 720) return 1;
+    if (w <= 1050) return 2;
+    return 3;
+  };
+
+  const ioPrices = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+      const index = [...prijsCards].indexOf(el);
+      const cols = colsForWidth();
+
+      // stagger per rij (matcht jouw grid: 3, 2, 1 kolom)
+      el.style.transitionDelay = ((index % cols) * 90) + "ms";
+      el.classList.add("is-visible");
+
+      ioPrices.unobserve(el);
+    });
+  }, { threshold: 0.45 });
+
+  prijsCards.forEach(card => ioPrices.observe(card));
+
 })();
 
 function escapeHtml(str){
@@ -91,3 +119,12 @@ const obs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.55 });
 features.forEach(f => obs.observe(f));
+
+
+const cards = document.querySelectorAll(".cards .card");
+const ob = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("card-visible");
+  });
+}, { threshold: 0.45 });
+cards.forEach(c => ob.observe(c));
