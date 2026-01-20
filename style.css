@@ -1162,9 +1162,10 @@ body{
   .featureband .feature__media img{
     width: 100%;
     object-fit: cover;
-    object-position: center; /* of 50% 35% als gezicht hoger moet */
+    object-position: 35%; /* of 50% 35% als gezicht hoger moet */
     display: block;
   }
 }
+
 
 
