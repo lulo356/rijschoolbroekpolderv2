@@ -1,61 +1,94 @@
 // prices.js
 window.PRICES = {
-  note: "Prijzen kunnen wijzigen. Vraag naar de actuele beschikbaarheid.",
+  note: "Prijzen kunnen wijzigen. Vraag naar de actuele beschikbaarheid.\nBetaal je in termijnen? Het volledige bedrag moet eerst betaald worden voordat je examen mag afleggen.",
   items: [
     {
-      title: "Losse rijles",
-      price: "€ 9999",
-      subtitle: "60 minuten",
-      features: ["Vaste instructeur", "Ophaalservice in regio", "Persoonlijk lesplan"],
-      ctaText: "Proefles aanvragen",
+      title: "Los Proefles / Kennismaking",
+      price: "€50,00",
+      subtitle: "Losse introductie / Kennismaking / Proefles",
+      features: ["60 minuten"],
+      ctaText: "Aanvragen",
       ctaHref: "#contact",
       featured: false
     },
     {
-      title: "Pakket Start",
-      price: "€ 9999",
-      subtitle: "20 lessen + praktijkadvies",
-      features: ["20 lessen", "Praktijkadvies", "Examentraining"],
-      ctaText: "Kies Start",
+      title: "Losse rijles",
+      price: "€75,00",
+      subtitle: "Losse rijles mogelijk in 60 of 90 minuten",
+      features: ["60 minuten: €75,00", "90 minuten: €107,50"],
+      ctaText: "Aanvragen",
+      ctaHref: "#contact",
+      featured: false
+    },
+    {
+      title: "5 Lessen",
+      price: "€537,50",
+      subtitle: "5 rijlessen (60 of 90 minuten)",
+      features: ["5 rijlessen", "60 of 90 minuten rijden"],
+      ctaText: "Aanvragen",
+      ctaHref: "#contact",
+      featured: false
+    },
+    {
+      title: "10 Lessen",
+      price: "€1075,00",
+      subtitle: "10 rijlessen (60 of 90 minuten)",
+      features: ["10 rijlessen", "60 of 90 minuten rijden"],
+      ctaText: "Aanvragen",
+      ctaHref: "#contact",
+      featured: false
+    },
+    {
+      title: "20 Lessen",
+      price: "€2425,00",
+      subtitle: "Volledig pakket! 20 × 90 minuten rijden",
+      features: [
+        "Proefles/kennismaking",
+        "Praktijk examen",
+        "60 minuten ook mogelijk",
+        "Betalen in 4 termijnen mogelijk"
+      ],
+      ctaText: "Aanvragen",
+      ctaHref: "#contact",
+      featured: false
+    },
+    {
+      title: "25 Lessen",
+      price: "€2925,00",
+      subtitle: "Volledig pakket! 25 × 90 minuten rijden",
+      features: [
+        "Proefles/kennismaking",
+        "Praktijk examen",
+        "60 minuten ook mogelijk",
+        "Betalen in 4 termijnen mogelijk"
+      ],
+      ctaText: "Aanvragen",
       ctaHref: "#contact",
       featured: true
     },
     {
-      title: "Pakket Plus",
-      price: "€ 9999",
-      subtitle: "30 lessen + examentraining",
-      features: ["30 lessen", "Tussentijdse evaluatie", "Examentraining"],
-      ctaText: "Kies Plus",
+      title: "30 Lessen",
+      price: "€3450,00",
+      subtitle: "Volledig pakket! 30 × 90 minuten rijden",
+      features: [
+        "Proefles/kennismaking",
+        "Praktijk examen",
+        "60 minuten ook mogelijk",
+        "Betalen in 4 termijnen mogelijk"
+      ],
+      ctaText: "Aanvragen",
       ctaHref: "#contact",
       featured: false
     },
     {
-      title: "Pakket test",
-      price: "€ 9999",
-      subtitle: "30 lessen + examentraining",
-      features: ["30 lessen", "Tussentijdse evaluatie", "Examentraining"],
-      ctaText: "Kies Plus",
+      title: "Auto huur / CBR rijtest",
+      price: "€175,00",
+      subtitle: "Auto nodig voor rijtest bij het CBR? Neem contact op voor info.",
+      features: [],
+      ctaText: "Aanvragen",
       ctaHref: "#contact",
       featured: false
-    },
-    {
-      title: "Pakket test",
-      price: "€ 9999",
-      subtitle: "30 lessen + examentraining",
-      features: ["30 lessen", "Tussentijdse evaluatie", "Examentraining"],
-      ctaText: "Kies Plus",
-      ctaHref: "#contact",
-      featured: false
-    },
-    {
-      title: "Pakket test",
-      price: "€ 9999",
-      subtitle: "30 lessen + examentraining",
-      features: ["30 lessen", "Tussentijdse evaluatie", "Examentraining"],
-      ctaText: "Kies Plus",
-      ctaHref: "#contact",
-      featured: false
-    },
+    }
   ]
 };
 

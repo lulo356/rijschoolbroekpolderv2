@@ -81,3 +81,13 @@ function renderSimpleTable(targetId, rows, opts) {
   el.innerHTML = `<div class="ttable">${header}${body}</div>`;
 }
 
+const features = document.querySelectorAll(".feature");
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("is-visible");
+    }
+  });
+}, { threshold: 0.55 });
+features.forEach(f => obs.observe(f));
