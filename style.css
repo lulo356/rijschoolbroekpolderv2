@@ -1158,28 +1158,13 @@ body{
 
 /* ===== TABLET FIX: "Wie ben ik" foto netjes ===== */
 @media (min-width: 721px) and (max-width: 1050px){
-
-  /* zorg dat tekst+foto niet te krap worden */
-  .featureband .feature-inner{
-
-    gap: 18px;
-    align-items: center;
-  }
-
-  /* foto-box netjes */
-  .featureband .feature__media{
-    width: 100%;
-    max-width: 520px;     /* voorkomt mega breed */
-    justify-self: center; /* midden in kolom */
-  }
-
   /* foto uitsnede goed */
   .featureband .feature__media img{
     width: 100%;
-    height: 500px;        /* tablet hoogte */
     object-fit: cover;
     object-position: center; /* of 50% 35% als gezicht hoger moet */
     display: block;
   }
 }
+
 
