@@ -1161,7 +1161,7 @@ body{
 
   /* zorg dat tekst+foto niet te krap worden */
   .featureband .feature-inner{
-    grid-template-columns: 1fr 1fr; /* gelijk verdeeld */
+
     gap: 18px;
     align-items: center;
   }
@@ -1176,9 +1176,10 @@ body{
   /* foto uitsnede goed */
   .featureband .feature__media img{
     width: 100%;
-    height: 260px;        /* tablet hoogte */
+    height: 500px;        /* tablet hoogte */
     object-fit: cover;
     object-position: center; /* of 50% 35% als gezicht hoger moet */
     display: block;
   }
 }
+
