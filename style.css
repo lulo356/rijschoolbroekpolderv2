@@ -697,7 +697,7 @@ body{
 @media (max-width: 1050px){
   .nav{gap:16px}
   .hero h1{font-size: 38px}
-  .cards{grid-template-columns: 1fr 1fr; transform: translateY(70px)}
+  .cards{grid-template-columns: 1fr 1fr;}
 }
 @media (max-width: 720px){
   .hero{
@@ -1228,4 +1228,5 @@ body{
   font-size: 22px;
   cursor:pointer;
 }
+
 
